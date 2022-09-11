@@ -77,3 +77,17 @@ services:
     container_name: strelka_gatekeeper_1
     networks:
       - net
+
+  filestream:
+    build:
+      context: ..
+      dockerfile: build/go/filestream/Dockerfile
+    command: strelka-filestream
+    container_name: strelka_filestream_1
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /etc/strelka/:/etc/strelka/
+      - /var/log/strelka/:/var/log/strelka/
+      - ../configs/go/filestream/:/etc/strelka/:ro
+      - /var/mars/strelka/:/var/mars/strelka/

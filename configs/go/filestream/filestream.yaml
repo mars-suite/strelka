@@ -10,11 +10,12 @@ throughput:
   delay: 0s
 files:
   patterns:
-    - '/glob/to/your/files/*'
-  processed: '/path/to/your/processed/directory/'
+    - '/var/mars/zeek/extracted/*'
+  processed: '/var/mars/strelka/processed/'
   delete: false
   gatekeeper: true
 response:
+  log: '/var/log/strelka/strelka.log'
   report: 5s
 delta: 5s
-staging: '/path/to/your/staging/directory/'
+staging: '/var/mars/strelka/staging/'
